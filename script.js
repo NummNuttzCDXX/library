@@ -3,6 +3,7 @@
 let lib = []
 
 const card = document.querySelector('.card')
+const container = document.querySelector('.container')
 
 // Object CONSTRUCTOR Function
 function Book(title, author, pages, read) {
@@ -34,6 +35,39 @@ function showBook(book) {
     author.textContent += book.author
     pages.textContent += book.pages
     read.textContent += book.read
+}
+
+function addCard() {
+    const div = document.createElement('div')
+
+    // Add new div with .card to .container
+    div.classList.add('card')
+    container.append(div)
+
+    // Get cards, Get length of nodelist, and set the card to the last item in nodelist
+    const cards = document.querySelectorAll('.card'),
+    len = cards.length,
+    card = cards[len-1]
+    
+    // Create new div for title, set text, and add to card
+    const title = document.createElement('div')
+    title.classList.add('title')
+    title.textContent = 'Title: '
+    card.appendChild(title)
+
+    // Author
+    const author = document.createElement('div')
+    author.classList.add('author')
+    author.textContent = 'Author: '
+    card.append(author)
+
+    // Pages
+    const pages = document.createElement('div')
+    pages.classList.add('pages')
+    pages.textContent = 'Pages: '
+    card.append(pages)
+
+    // Read
 }
 
 // TEST
