@@ -22,3 +22,23 @@ body {
     border: 2px solid black;
 }
 
+/* Container holding form */
+.book-form {
+    /* Take form out of page flow and place in the middle of screen */
+    position: absolute;
+    /* Place in middle of page -- Margins subtract half the height and width */
+    top: 50%;
+    margin-top: -88.5px;
+    left: 50%;
+    margin-left: -107px;
+    
+    /* New Book Btn will set this to visible instead of using JS to create every form element */
+    visibility: hidden;
+}
+
+/* New Book Form */
+.book-form form{
+    /* Flex for alignment */
+    display: flex;
+    flex-direction: column;
+}
