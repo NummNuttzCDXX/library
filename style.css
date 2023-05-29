@@ -5,6 +5,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    font-size: 18px;
 }
 
 /* Content Section */
@@ -37,6 +39,8 @@ body {
     --height: 50vh;
     width: var(--width);
     height: var(--height);
+
+    background-color: rgba(0, 0, 0, 0.755);
     
     /* New Book Btn will set this to visible instead of using JS to create every form element */
     visibility: hidden;
@@ -44,7 +48,22 @@ body {
 
 /* New Book Form */
 .book-form form{
+    height: var(--height);
     /* Flex for alignment */
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    color: white;
+}
+
+input[type=text], input[type=number] {
+    appearance: none;
+    border-radius: 5px;
+
+    width: 30ch;
+    height: 1.5rem;
+    font-size: .9rem;
+    text-align: center;
 }
