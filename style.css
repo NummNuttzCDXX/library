@@ -28,9 +28,15 @@ body {
     position: absolute;
     /* Place in middle of page -- Margins subtract half the height and width */
     top: 50%;
-    margin-top: -88.5px;
+    margin-top: calc(var(--height) / -2);
     left: 50%;
-    margin-left: -107px;
+    margin-left: calc(var(--width) / -2);
+
+    /* Use variables for width/height of container so the margins keep it in the center */
+    --width: 50vw;
+    --height: 50vh;
+    width: var(--width);
+    height: var(--height);
     
     /* New Book Btn will set this to visible instead of using JS to create every form element */
     visibility: hidden;
