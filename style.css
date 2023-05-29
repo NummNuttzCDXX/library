@@ -11,10 +11,11 @@ body {
 
 /* Content Section */
 .container {
-    width: 100%;
-
     /* Temp border */
     border: 3px solid red;
+
+    display: flex;
+    gap: 20px;
 }
 
 /* Card for each book */
