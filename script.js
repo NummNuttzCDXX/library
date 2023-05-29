@@ -3,7 +3,9 @@
 let lib = []
 
 const card = document.querySelector('.card')
-const container = document.querySelector('.container')
+const container = document.querySelector('.container'),
+newBtn = document.querySelector('.new-book'),
+formDiv = document.querySelector('.book-form')
 
 // Object CONSTRUCTOR Function
 function Book(title, author, pages, read) {
@@ -69,6 +71,13 @@ function addCard() {
 
     // Read
 }
+
+// Button brings up form to input details about new book
+newBtn.addEventListener('click', () => {
+    // Form is already on the page -- just hidden
+    // Button makes it visible
+    formDiv.style.visibility = 'visible'
+})
 
 // TEST
 let book1 = new Book('My Book', 'ME', 69, true);
