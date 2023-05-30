@@ -56,19 +56,19 @@ function addCard(book) {
     // Create new div for title, set text, and add to card
     const title = document.createElement('div')
     title.classList.add('title')
-    title.textContent = 'Title: ' + book.title
+    title.textContent = book.title
     card.appendChild(title)
 
     // Author
     const author = document.createElement('div')
     author.classList.add('author')
-    author.textContent = 'Author: ' + book.author
+    author.textContent = 'By: ' + book.author
     card.append(author)
 
     // Pages
     const pages = document.createElement('div')
     pages.classList.add('pages')
-    pages.textContent = 'Pages: ' + book.pages
+    pages.textContent =  book.pages + 'pages'
     card.append(pages)
 
     // Read
