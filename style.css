@@ -39,6 +39,23 @@ h1 {
 
     display: grid;
     grid-template-rows: repeat(4, 1fr);
+
+    /* Position the X icon relative to the card */
+    position: relative;
+}
+
+.card img {
+    height: 32px;
+    position: absolute;
+    top: -2px;
+    right: 0px;
+}
+
+.card img:hover {
+    /* Make slightly bigger on hover to show its selected */
+    height: 40px;
+    top: -5px;
+    right: -5px;
 }
 
 .card div, .card label {
