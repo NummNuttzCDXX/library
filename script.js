@@ -78,12 +78,19 @@ function addCard(book) {
     card.append(pages)
 
     // Read
-    const read = document.createElement('input')
+    const read = document.createElement('input'),
+    label = document.createElement('label')
+
+    label.setAttribute('class', 'read')
+    label.textContent = 'Read: '
+
     read.setAttribute('type', 'checkbox')
     if (book.read === true) {
         read.checked = true
-        card.append(read)
-    } else {card.append(read)}
+    } else {read.checked = false}
+
+    label.append(read)
+    card.append(label)
 }
 
 // Button brings up form to input details about new book
