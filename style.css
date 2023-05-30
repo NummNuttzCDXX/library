@@ -60,6 +60,7 @@ h1 {
 
 .card div, .card label {
     margin-left: 10px;
+    margin-top: 20px;
 }
 
 /* Container holding form */
