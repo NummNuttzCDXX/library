@@ -23,8 +23,8 @@ function Book(title, author, pages, read) {
     }
 }
 
-function addBookToLibrary(title, author, pages) {
-    let newBook = new Book(title, author, pages, false)
+function addBookToLibrary(title, author, pages, read) {
+    let newBook = new Book(title, author, pages, read)
     // Add input to library
     return newBook
 }
@@ -72,13 +72,13 @@ function addCard(book) {
     card.append(pages)
 
     // Read
+    const read = document.createElement('input')
+    read.setAttribute('type', 'checkbox')
+    if (book.read === true) {
+        read.checked = true
+        card.append(read)
+    } else {card.append(read)}
 }
-
-// Function to show newly added book on the page and add to library
-// Need to turn inputs into a new Book Object -- Add card and show the details of book on the card
-function createBook() {
-    addBookToLibrary()
-} 
 
 // Button brings up form to input details about new book
 newBtn.addEventListener('click', () => {
@@ -91,9 +91,9 @@ subBtn.addEventListener('click', (event) => {
     let title = document.querySelector('#title'),
     author = document.querySelector('#author'),
     pages = document.querySelector('#pages')
-    // read = 
+    read = document.querySelector('#read')
 
-    lib.push(addBookToLibrary(title.value, author.value, pages.value))
+    lib.push(addBookToLibrary(title.value, author.value, pages.value, read.checked))
 
     // Reset text fields
     title.value = ''
