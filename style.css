@@ -47,6 +47,12 @@ body {
     visibility: hidden;
 }
 
+.form-wrapper {
+    width: 50vw;
+    height: calc(50vh + 50px);
+    border: 3px solid lightgreen;
+}
+
 /* New Book Form */
 .book-form form{
     height: calc(var(--height) / 2);
