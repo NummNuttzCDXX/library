@@ -27,7 +27,7 @@ body {
 
 /* Container holding form */
 .book-form {
-    /* Take form out of page flow and place in the middle of screen */
+    /* Take form out of page flow */
     position: absolute;
 
     /* Use variables for width/height of container so the margins keep it in the center */
@@ -39,13 +39,17 @@ body {
 
     background-color: rgba(0, 0, 0, 0.755);
     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     /* New Book Btn will set this to visible instead of using JS to create every form element */
     visibility: hidden;
 }
 
 /* New Book Form */
 .book-form form{
-    height: var(--height);
+    height: calc(var(--height) / 2);
     /* Flex for alignment */
     display: flex;
     flex-direction: column;
