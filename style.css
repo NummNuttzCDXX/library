@@ -29,15 +29,11 @@ body {
 .book-form {
     /* Take form out of page flow and place in the middle of screen */
     position: absolute;
-    /* Place in middle of page -- Margins subtract half the height and width */
-    top: 50%;
-    margin-top: calc(var(--height) / -2);
-    left: 50%;
-    margin-left: calc(var(--width) / -2);
 
     /* Use variables for width/height of container so the margins keep it in the center */
-    --width: 50vw;
-    --height: 50vh;
+    /* May not need anymore */
+    --width: 100vw;
+    --height: 100vh;
     width: var(--width);
     height: var(--height);
 
