@@ -41,6 +41,10 @@ h1 {
     grid-template-rows: repeat(4, 1fr);
 }
 
+.card div, .card label {
+    margin-left: 10px;
+}
+
 /* Container holding form */
 .book-form {
     /* Take form out of page flow */
