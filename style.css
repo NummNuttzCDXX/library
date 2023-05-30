@@ -90,3 +90,13 @@ input[type=text], input[type=number] {
     font-size: .9rem;
     text-align: center;
 }
+
+footer {
+    width: 100vw;
+    height: 1.8rem;
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
