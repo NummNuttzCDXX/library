@@ -52,6 +52,12 @@ function addCard(book) {
     const cards = document.querySelectorAll('.card'),
     len = cards.length,
     card = cards[len-1]
+
+    // Add X icon to card
+    const img = document.createElement('img')
+    img.setAttribute('src', 'img/x-icon.svg')
+    img.setAttribute('alt', 'Close Icon')
+    card.append(img)
     
     // Create new div for title, set text, and add to card
     const title = document.createElement('div')
