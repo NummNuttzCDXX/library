@@ -6,8 +6,9 @@ const container = document.querySelector('.container'),
 newBtn = document.querySelector('.new-book'),
 formDiv = document.querySelector('.book-form'),
 subBtn = document.querySelector('.submit')
-// Declare global delete button variable
-let delBtn = document.querySelectorAll('.card img')
+// Declare global delete button and read checkbox variables
+let delBtn = document.querySelectorAll('.card img'),
+readCheck = document.querySelectorAll('.card input')
 
 // Object CONSTRUCTOR Function
 function Book(title, author, pages, read) {
@@ -133,6 +134,18 @@ subBtn.addEventListener('click', (event) => {
 
             delete lib[ind]
             parentCard.remove()
+        })
+    })
+
+    // Loop through Read Checkboxes and check if their status changed
+    readCheck = document.querySelectorAll('.card input')
+    readCheck.forEach((box) => {
+        box.addEventListener('change', () => {
+            let label = box.parentElement,
+            card = label.parentElement,
+            book = card.getAttribute('data')
+
+            lib[book].toggleRead()
         })
     })
 })
