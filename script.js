@@ -91,6 +91,9 @@ function addCard(book) {
 
     label.append(read)
     card.append(label)
+
+    // Label the Card with the index of lib 
+    card.setAttribute('data', (lib.length - 1))
 }
 
 // Button brings up form to input details about new book
