@@ -114,7 +114,7 @@ input[type=text], input[type=number] {
 }
 
 /* New Book Btn */
-.new-book {
+.new-book, .submit {
     width: 100px;
     height: 2rem;
     font-size: 1rem;
@@ -124,7 +124,7 @@ input[type=text], input[type=number] {
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.712);
 }
 
-.new-book:hover {
+.new-book:hover, .submit:hover {
     background-color: rgb(0, 255, 0);
 }
 
