@@ -75,7 +75,7 @@ function addCard(book) {
     // Pages
     const pages = document.createElement('div')
     pages.classList.add('pages')
-    pages.textContent =  book.pages + 'pages'
+    pages.textContent =  book.pages + ' pages'
     card.append(pages)
 
     // Read
