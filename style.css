@@ -130,10 +130,28 @@ input[type=text], input[type=number] {
 
 footer {
     width: 100vw;
-    height: 1.8rem;
+    height: 2.3rem;
     background-color: black;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+footer a {
+    height: 1.8rem;
+    width: 1.7rem;
+    text-decoration: none;
+}
+
+footer img {
+    width: 1.55rem;
+    margin-left: 10px;
+}
+
+footer img:hover {
+    cursor: pointer;
+    /* Transition affects animation -- without it the transform would happen instantly instead of over .5s */
+    transition: transform .5s;
+    transform: rotate(1turn);
 }
