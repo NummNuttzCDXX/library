@@ -15,12 +15,8 @@ function Book(title, author, pages, read) {
     this.author = author,
     this.pages = pages,
     this.read = read,
-    this.info = function() {
-        if (this.read === false) {
-            return `${title} by ${author}, ${pages} pages, not read yet`
-        } else {
-            return `${title} by ${author}, ${pages} pages, read`
-        }
+    this.toggleRead = function () {
+        if (this.read) {this.read = false} else {this.read = true}
     }
 }
 
