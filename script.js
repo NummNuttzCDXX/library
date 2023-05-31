@@ -2,11 +2,12 @@
 // Array to Hold library of books
 let lib = []
 
-const card = document.querySelector('.card')
 const container = document.querySelector('.container'),
 newBtn = document.querySelector('.new-book'),
 formDiv = document.querySelector('.book-form'),
 subBtn = document.querySelector('.submit')
+// Declare global delete button variable
+let delBtn = document.querySelectorAll('.card img')
 
 // Object CONSTRUCTOR Function
 function Book(title, author, pages, read) {
@@ -103,6 +104,7 @@ newBtn.addEventListener('click', () => {
     formDiv.style.visibility = 'visible'
 })
 
+// Submit form btn will hold a function that adds book to library, adds card and fills card out with info -- updates delete buttons and adds listeners to them
 subBtn.addEventListener('click', (event) => {
     let title = document.querySelector('#title'),
     author = document.querySelector('#author'),
@@ -125,6 +127,18 @@ subBtn.addEventListener('click', (event) => {
     // Add card to page with book data
     let len = lib.length
     addCard(lib[len - 1])
+
+    delBtn = document.querySelectorAll('.card img')
+    // Loop through X button on cards and delete the corrosponding card and book data from lib
+    delBtn.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            let parentCard = btn.parentElement,
+            ind = parentCard.getAttribute('data')
+
+            delete lib[ind]
+            parentCard.remove()
+        })
+    })
 })
 
 // TEST
