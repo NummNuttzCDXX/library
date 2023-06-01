@@ -159,6 +159,3 @@ cancelBtn.addEventListener('click', () => {
     const inputs = document.querySelectorAll('form input')
     inputs.forEach((input) => input.id === 'read' ? input.checked = false : input.value = '' )
 })
-// TEST
-let book1 = new Book('My Book', 'ME', 69, true);
-lib.push(book1)
