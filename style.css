@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    width: 100%;
+    width: 100vw;
     background-color: rgb(0, 0, 0);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.712);
 }
@@ -26,7 +26,10 @@ h1 {
 /* Content Section */
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 /* Card for each book */
