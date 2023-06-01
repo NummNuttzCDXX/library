@@ -5,7 +5,8 @@ let lib = []
 const container = document.querySelector('.container'),
 newBtn = document.querySelector('.new-book'),
 formDiv = document.querySelector('.book-form'),
-subBtn = document.querySelector('.submit')
+subBtn = document.querySelector('.submit'),
+cancelBtn = document.querySelector('.close')
 // Declare global delete button and read checkbox variables
 let delBtn = document.querySelectorAll('.card img'),
 readCheck = document.querySelectorAll('.card input')
@@ -150,6 +151,14 @@ subBtn.addEventListener('click', (event) => {
     })
 })
 
+// Listener for .close button on form
+cancelBtn.addEventListener('click', () => {
+    // Hide form
+    formDiv.style.visibility = 'hidden'
+    // Clear contents of inputs
+    const inputs = document.querySelectorAll('form input')
+    inputs.forEach((input) => input.id === 'read' ? input.checked = false : input.value = '' )
+})
 // TEST
 let book1 = new Book('My Book', 'ME', 69, true);
 lib.push(book1)
