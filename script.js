@@ -3,22 +3,25 @@
 let lib = []
 
 const container = document.querySelector('.container'),
-newBtn = document.querySelector('.new-book'),
-formDiv = document.querySelector('.book-form'),
-subBtn = document.querySelector('.submit'),
-cancelBtn = document.querySelector('.close')
+    newBtn = document.querySelector('.new-book'),
+    formDiv = document.querySelector('.book-form'),
+    subBtn = document.querySelector('.submit'),
+    cancelBtn = document.querySelector('.close')
 // Declare global delete button and read checkbox variables
 let delBtn = document.querySelectorAll('.card img'),
-readCheck = document.querySelectorAll('.card input')
+    readCheck = document.querySelectorAll('.card input')
 
-// Object CONSTRUCTOR Function
-function Book(title, author, pages, read) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = read,
-    this.toggleRead = function () {
-        if (this.read) {this.read = false} else {this.read = true}
+// Class Syntax -- Object CONSTRUCTOR
+// Doesnt create a "real" class -- Same as before just a new, familiar syntax
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title,
+            this.author = author,
+            this.pages = pages,
+            this.read = read,
+            this.toggleRead = function () {
+                if (this.read) { this.read = false } else { this.read = true }
+            }
     }
 }
 
@@ -30,9 +33,9 @@ function addBookToLibrary(title, author, pages, read) {
 
 function showBook(book) {
     const title = document.querySelector('.title'),
-    author = document.querySelector('.author'),
-    pages = document.querySelector('.pages'),
-    read = document.querySelector('.read');
+        author = document.querySelector('.author'),
+        pages = document.querySelector('.pages'),
+        read = document.querySelector('.read');
 
     title.textContent += book.title
     author.textContent += book.author
@@ -49,15 +52,15 @@ function addCard(book) {
 
     // Get cards, Get length of nodelist, and set the card to the last item in nodelist
     const cards = document.querySelectorAll('.card'),
-    len = cards.length,
-    card = cards[len-1]
+        len = cards.length,
+        card = cards[len - 1]
 
     // Add X icon to card
     const img = document.createElement('img')
     img.setAttribute('src', 'img/x-icon.svg')
     img.setAttribute('alt', 'Close Icon')
     card.append(img)
-    
+
     // Create new div for title, set text, and add to card
     const title = document.createElement('div')
     title.classList.add('title')
@@ -73,12 +76,12 @@ function addCard(book) {
     // Pages
     const pages = document.createElement('div')
     pages.classList.add('pages')
-    pages.textContent =  book.pages + ' pages'
+    pages.textContent = book.pages + ' pages'
     card.append(pages)
 
     // Read
     const read = document.createElement('input'),
-    label = document.createElement('label')
+        label = document.createElement('label')
 
     label.setAttribute('class', 'read')
     label.textContent = 'Read: '
@@ -86,7 +89,7 @@ function addCard(book) {
     read.setAttribute('type', 'checkbox')
     if (book.read === true) {
         read.checked = true
-    } else {read.checked = false}
+    } else { read.checked = false }
 
     label.append(read)
     card.append(label)
@@ -105,8 +108,8 @@ newBtn.addEventListener('click', () => {
 // Submit form btn will hold a function that adds book to library, adds card and fills card out with info -- updates delete buttons and adds listeners to them
 subBtn.addEventListener('click', (event) => {
     let title = document.querySelector('#title'),
-    author = document.querySelector('#author'),
-    pages = document.querySelector('#pages')
+        author = document.querySelector('#author'),
+        pages = document.querySelector('#pages')
     read = document.querySelector('#read')
 
     lib.push(addBookToLibrary(title.value, author.value, pages.value, read.checked))
@@ -131,7 +134,7 @@ subBtn.addEventListener('click', (event) => {
     delBtn.forEach((btn) => {
         btn.addEventListener('click', () => {
             let parentCard = btn.parentElement,
-            ind = parentCard.getAttribute('data')
+                ind = parentCard.getAttribute('data')
 
             delete lib[ind]
             parentCard.remove()
@@ -143,8 +146,8 @@ subBtn.addEventListener('click', (event) => {
     readCheck.forEach((box) => {
         box.addEventListener('change', () => {
             let label = box.parentElement,
-            card = label.parentElement,
-            book = card.getAttribute('data')
+                card = label.parentElement,
+                book = card.getAttribute('data')
 
             lib[book].toggleRead()
         })
@@ -157,5 +160,5 @@ cancelBtn.addEventListener('click', () => {
     formDiv.style.visibility = 'hidden'
     // Clear contents of inputs
     const inputs = document.querySelectorAll('form input')
-    inputs.forEach((input) => input.id === 'read' ? input.checked = false : input.value = '' )
+    inputs.forEach((input) => input.id === 'read' ? input.checked = false : input.value = '')
 })
