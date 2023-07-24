@@ -86,10 +86,8 @@ function addCard(book) {
     label.setAttribute('class', 'read')
     label.textContent = 'Read: '
 
-    read.setAttribute('type', 'checkbox')
-    if (book.read === true) {
-        read.checked = true
-    } else {read.checked = false}
+    read.setAttribute('type', 'checkbox');
+    (book.read === true) ? read.checked = true : read.checked = false;
 
     label.append(read)
     card.append(label)
@@ -107,10 +105,15 @@ newBtn.addEventListener('click', () => {
 
 // Submit form btn will hold a function that adds book to library, adds card and fills card out with info -- updates delete buttons and adds listeners to them
 subBtn.addEventListener('click', (event) => {
-    let title = document.querySelector('#title'),
+	// Validate form first
+	if (!validateForm()) {
+		return;
+	}
+
+    const title = document.querySelector('#title'),
         author = document.querySelector('#author'),
-        pages = document.querySelector('#pages')
-    read = document.querySelector('#read')
+        pages = document.querySelector('#pages'),
+        read = document.querySelector('#read');
 
     lib.push(addBookToLibrary(title.value, author.value, pages.value, read.checked))
 
@@ -162,3 +165,35 @@ cancelBtn.addEventListener('click', () => {
     const inputs = document.querySelectorAll('form input')
     inputs.forEach((input) => input.id === 'read' ? input.checked = false : input.value = '')
 })
+
+// Return True or False 
+function validateForm () {
+    // Get inputs
+    const title = document.querySelector('#title');
+    const author = document.querySelector('#author');
+    const pages = document.querySelector('#pages');
+
+	// Check Pages
+	if (pages.validity.rangeUnderflow || pages.validity.valueMissing) {
+		pages.setCustomValidity('This field must be filled');
+		return false;
+	} else {
+		pages.setCustomValidity('');
+	}
+
+	if (title.validity.valueMissing) {
+		title.setCustomValidity('This field must be filled');
+		return false;
+	} else {
+		title.setCustomValidity('');
+	}
+
+	if (author.validity.valueMissing) {
+		author.setCustomValidity('This field must be filled');
+		return false;
+	} else {
+		author.setCustomValidity('');
+	}
+
+	return true;
+}
