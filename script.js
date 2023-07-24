@@ -16,12 +16,12 @@ let delBtn = document.querySelectorAll('.card img'),
 class Book {
     constructor(title, author, pages, read) {
         this.title = title,
-            this.author = author,
-            this.pages = pages,
-            this.read = read,
-            this.toggleRead = function () {
-                if (this.read) { this.read = false } else { this.read = true }
-            }
+        this.author = author,
+        this.pages = pages,
+        this.read = read,
+        this.toggleRead = function () {
+            if (this.read) {this.read = false} else {this.read = true}
+        }
     }
 }
 
@@ -89,7 +89,7 @@ function addCard(book) {
     read.setAttribute('type', 'checkbox')
     if (book.read === true) {
         read.checked = true
-    } else { read.checked = false }
+    } else {read.checked = false}
 
     label.append(read)
     card.append(label)
