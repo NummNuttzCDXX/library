@@ -106,9 +106,21 @@ h1 {
     color: white;
 }
 
+input:invalid:required{
+    border-color: red;
+    background-color: rgba(255, 79, 79, 0.827);
+}
+
+input[type=text]:valid,
+input[type=number]:valid {
+    background-color: rgba(51, 247, 51, 0.829);
+}
+
 input[type=text], input[type=number] {
     appearance: none;
     border-radius: 5px;
+    border-color: black;
+    background-color: white;
 
     width: 30ch;
     height: 1.5rem;
